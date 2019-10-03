@@ -15,4 +15,4 @@ RUN pipenv install --skip-lock --system --dev
 
 COPY . /usr/src/mqtt_http_api/
 
-CMD ["python", "app/server.py"]
+CMD ["python", "app/api.py"]
