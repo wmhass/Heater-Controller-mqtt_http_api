@@ -22,8 +22,8 @@ class Application(tornado.web.Application):
 
     def __init__(self, mqtt_client):
         handlers = [
-            (r"/", HomeHandler, dict(mqtt_client=mqtt_client)),
-            (r"/entry/([^/]+)", EntryHandler),
+            (r"/mqtt_http_api/", HomeHandler, dict(mqtt_client=mqtt_client)),
+            (r"/mqtt_http_api/entry/([^/]+)", EntryHandler),
         ]
         super(Application, self).__init__(handlers)
 
