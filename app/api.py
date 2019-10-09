@@ -60,7 +60,7 @@ class EntryHandler(BaseHandler):
 
 async def main():
     mqtt_client = mqtt.Client(client_id="sdasdjij")
-    mqtt_client.username_pw_set(username="username", password="password")
+    mqtt_client.username_pw_set(username="admin2", password="admin")
     mqtt_client.connect(host=os.environ.get('MQTT_BROKER_HOST'),
                         port=int(os.environ.get('MQTT_BROKER_PORT')))
     mqtt_client.loop_start()
