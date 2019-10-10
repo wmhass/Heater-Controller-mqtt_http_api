@@ -59,10 +59,16 @@ class EntryHandler(BaseHandler):
 
 
 async def main():
-    mqtt_client = mqtt.Client(client_id="sdasdjij")
-    mqtt_client.username_pw_set(username="admin2", password="admin")
-    mqtt_client.connect(host=os.environ.get('MQTT_BROKER_HOST'),
-                        port=int(os.environ.get('MQTT_BROKER_PORT')))
+    mqtt_host = os.environ.get('MQTT_BROKER_HOST')
+    mqtt_port = int(os.environ.get('MQTT_BROKER_PORT'))
+
+    mqtt_username = os.environ.get('MQTT_USERNAME')
+    mqtt_password = os.environ.get('MQTT_PASSWORD')
+    mqtt_client_id = os.environ.get('MQTT_CLIENT_ID')
+
+    mqtt_client = mqtt.Client(client_id=mqtt_client_id)
+    mqtt_client.username_pw_set(username=mqtt_username, password=mqtt_password)
+    mqtt_client.connect(host=mqtt_host, port=mqtt_port)
     mqtt_client.loop_start()
 
     tornado.options.parse_command_line()

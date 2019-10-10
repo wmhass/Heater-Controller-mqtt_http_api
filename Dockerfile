@@ -17,4 +17,9 @@ COPY . /usr/src/mqtt_http_api/
 
 EXPOSE 8888
 
+ADD ./entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
+
 CMD ["python", "app/api.py"]
