@@ -7,7 +7,7 @@ import tornado.locks
 import tornado.options
 import tornado.web
 import os
-
+import time
 from tornado.options import define, options
 
 import paho.mqtt.client as mqtt
@@ -64,9 +64,9 @@ async def main():
 
     mqtt_username = os.environ.get('MQTT_USERNAME')
     mqtt_password = os.environ.get('MQTT_PASSWORD')
-    mqtt_client_id = os.environ.get('MQTT_CLIENT_ID')
+    mqtt_client_id_prefix = os.environ.get('MQTT_CLIENT_ID_PREFIX')
 
-    mqtt_client = mqtt.Client(client_id=mqtt_client_id)
+    mqtt_client = mqtt.Client(client_id=mqtt_client_id_prefix + str(time.time()))
     mqtt_client.username_pw_set(username=mqtt_username, password=mqtt_password)
     mqtt_client.connect(host=mqtt_host, port=mqtt_port)
     mqtt_client.loop_start()
