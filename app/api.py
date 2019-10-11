@@ -15,7 +15,7 @@ import paho.mqtt.client as mqtt
 # Very useful:
 # https://github.com/tornadoweb/tornado/blob/master/demos/blog/blog.py
 
-define("port", default=8888, help="run on the given port", type=int)
+define("port", default=8002, help="run on the given port", type=int)
 
 
 class Application(tornado.web.Application):

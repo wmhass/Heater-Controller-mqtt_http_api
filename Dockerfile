@@ -22,6 +22,6 @@ RUN chmod +x /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
 
-EXPOSE 8888
+EXPOSE 8002
 
 CMD ["python", "app/api.py"]
