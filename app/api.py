@@ -50,12 +50,12 @@ class HomeHandler(BaseHandler):
 
     async def get(self):
         self.mqtt_client.publish("hello/debug2")
-        self.write('{"hello": "world"}')
+        self.write('{"hello": "new world"}')
 
 
 class EntryHandler(BaseHandler):
     async def get(self, slug):
-        self.write('{"hello": " ' + str(slug) + ' "}')
+        self.write('{"hello": "new ' + str(slug) + ' "}')
 
 
 async def main():
